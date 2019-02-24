@@ -1,0 +1,61 @@
+openapi: "3.0.2"
+info:
+  title: "Sample Swagger Test Api"
+  version: "1.0.0"
+paths:
+  /pets:
+   get:
+     operationId: getAllPets1
+     parameters: 
+      - name: id
+        in: query
+        schema:
+         type: string
+     responses:
+       '200':
+        description: "Success fully get All Pets"
+        content:
+          application/json:
+           schema:
+            $ref: '#/components/schemas/SuccessModel'
+   put:
+     operationId: getAllPets
+     requestBody:
+       description: "request parametres to be send"
+       content:
+         application/json:
+          schema:
+           $ref: '#/components/schemas/RequestModel'
+     responses:
+       '200':
+        description: "Success fully get All Pets"
+        content:
+          application/json:
+           schema:
+            $ref: '#/components/schemas/SuccessModel'
+components:
+  schemas:
+    SuccessModel:
+     type: object
+     properties:
+      id:
+       type: integer
+      name:
+       type: string
+     required: 
+      - name
+     example:
+      name: "shun"
+      id: 1
+    RequestModel:
+     type: object
+     properties:
+      id:
+       type: integer
+      name:
+       type: string
+servers:
+- url: "http://www.google.com"
+
+ 
+ 
